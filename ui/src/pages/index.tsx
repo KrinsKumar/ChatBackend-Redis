@@ -80,13 +80,17 @@ export default function Home() {
 
     return (
         <main className="flex flex-col p-4 w-full max-w-3xl m-auto">
-            <h1 className="text-4xl font-bold text-center mb-4">Chat ({connectionCount})</h1>
+            <div className="relative bg-gray-200">
+                <h1 className="text-4xl mt-4font-bold text-center mb-4">Chat </h1>
+                <div className="absolute right-2 top-3">
+                    User Count: {connectionCount}
+                </div>    
+            </div>
             <ol className="flex-1 overflow-y-scroll overflow-x-hidden" ref={messageListRef}>
                 {
                     messages.map((message) => (
                         <li key={message.id} className="bg-gray-100 rounded-lg p-4 my-2 break-all">
-                            <p className="text-small text-gray-500">{message.createdAt}</p>
-                            <p className="text-small text-gray-500">{message.port}</p>
+                            <p className="text-small text-gray-500">PORT: {message.port}</p>
                             {message.message}
                         </li>
                     ))
